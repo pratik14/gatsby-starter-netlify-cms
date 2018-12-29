@@ -1,34 +1,84 @@
 ---
 templateKey: blog-post
-title: 'Making sense of the SCAA’s new Flavor Wheel Yo new Text why '
-date: 2016-12-17T15:04:10.000Z
+title: Functional Vs Class Components
+date: 2018-12-29T13:04:10.000Z
 description: >-
-  The Coffee Taster’s Flavor Wheel, the official resource used by coffee
-  tasters, has been revised for the first time this year. 
+  Why bother writing about functional component if class component has more
+  powers. 
 tags:
-  - flavor
-  - tasting
+  - components
+  - hooks
 ---
-
 ![flavor wheel](/img/flavor_wheel.jpg)
 
-The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
+There are two ways to define React component
 
-While this is going to be a big change for professional coffee tasters, it means a lot to you as a consumer as well. We’ll explain how the wheel came to be, how pros use it and what the flavors actually mean.
+1. Functional
+2. Class
 
-## What the updates mean to you
 
-The Specialty Coffee Association of America (SCAA), founded in 1982, is a non-profit trade organization for the specialty coffee industry. With members located in more than 40 countries, SCAA represents every segment of the specialty coffee industry, including:
 
-* producers
-* roasters
-* importers/exporters
-* retailers
-* manufacturers
-* baristas
+## Functional Component
 
-For over 30 years, SCAA has been dedicated to creating a vibrant specialty coffee community by recognizing, developing and promoting specialty coffee. SCAA sets and maintains quality standards for the industry, conducts market research, and provides education, training, resources, and business services for its members.
+“Functional components” are simple Javascript functions which accepts props and returns JSX code
 
-Coffee cupping, or coffee tasting, is the practice of observing the tastes and aromas of brewed coffee. It is a professional practice but can be done informally by anyone or by professionals known as "Q Graders". A standard coffee cupping procedure involves deeply sniffing the coffee, then loudly slurping the coffee so it spreads to the back of the tongue.
 
-The coffee taster attempts to measure aspects of the coffee's taste, specifically the body (the texture or mouthfeel, such as oiliness), sweetness, acidity (a sharp and tangy feeling, like when biting into an orange), flavour (the characters in the cup), and aftertaste. Since coffee beans embody telltale flavours from the region where they were grown, cuppers may attempt to identify the coffee's origin.
+
+`function Welcome(props) {             `\
+    `return <h1>Hello, {props.name}</h1>;`\
+`}                                     `
+
+
+
+## Class Component
+
+Whereas “Class Component” are ES6 way to create React Components 
+
+`class Welcome extends React.Component {  `\
+  `render() {`\
+    `return <h1>Hello, {this.props.name}</h1>;`\
+  `}`\
+`}`
+
+All class components 
+
+1. Have to extend from React.Component
+2. have “render” method which returns JX code
+3. Has Additional capability such as internal state and lifecycle hooks
+
+The differences above may seem subtle at first glance, but cutting the noise is a big win.
+
+
+
+## Advantage of Functional Component 
+
+_Reusable Code_\
+ A functional stateless component is merely a factory function used to create a React component
+
+_No this Keyword As_ \
+You can see above, the stateless component is just a function. Thus, all the annoying and confusing quirks with Javascript’s this keyword are avoided. The entire component becomes easier to understand without the this keyword. Just compare the click handler in each approach:
+
+
+
+onClick={this.sayHi.bind(this)}>Say Hi</a>\
+onClick={sayHi}>Say Hi</a>
+
+Note that the bind keyword isn’t necessary for the stateless component. Dumping classes eliminates the need for calling bind to pass the this context around. Given how confusing JavaScript’s this keyword is to many developers, avoiding it is a nice win.
+
+Easy to Test Since it’s a pure function, your assertions are very straightforward: Given these values for props, I expect it to return this markup. So for the example HelloWorld component, I can assert that when the render function is called with the value of ‘Cory’ for props.name, it returns a div with ‘Hi Cory’ inside.
+
+With React’s stateless functional components, each component can be easily tested in isolation. No mocking, state manipulation, special libraries, or tricky test harnesses are needed.
+
+Equipped with the right number of tests, the use of functional components can help bring peace of mind to developers by ensuring that any scenario that has been tested will not have an unintended result in the application.
+
+Easy to Understand
+
+As we’ve just seen, when you see a stateless functional component, you know it’s simply a function that takes props and spits out HTML. Even if it contains a lot of markup and nested functions inside the render, it’s conceptually simple. It’s a pure function. This leads to the next big win…
+
+
+
+Performance
+
+
+
+Familiar of OO Developer
