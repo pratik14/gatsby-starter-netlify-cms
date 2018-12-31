@@ -20,10 +20,10 @@ There are two ways to define React component
 
 “Functional components” are simple Javascript functions which accepts props and returns JSX code
 
-```javascript
+```jsx
 
-function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>;
+function Welcome(props) {\
+    return <h1>Hello, {props.name}</h1>;\
 }
 ```
 
@@ -31,11 +31,11 @@ function Welcome(props) {
 
 Whereas “Class Component” are ES6 way to create React Components 
 
-```javascript
-class Welcome extends React.Component {
-  render() {
-    return <h1>Hello, {this.props.name}</h1>;
-  }
+```jsx
+class Welcome extends React.Component {\
+  render() {\
+    return <h1>Hello, {this.props.name}</h1>;\
+  }\
 }
 ```
 
@@ -55,8 +55,8 @@ _Reusable Code_\
 _No this Keyword As_ \
 You can see above, the stateless component is just a function. Thus, all the annoying and confusing quirks with Javascript’s this keyword are avoided. The entire component becomes easier to understand without the this keyword. Just compare the click handler in each approach:
 
-```javascript
-  onClick={this.sayHi.bind(this)}>Say Hi</a>
+```jsx
+  onClick={this.sayHi.bind(this)}>Say Hi</a>\
   onClick={sayHi}>Say Hi</a>
 ```
 
