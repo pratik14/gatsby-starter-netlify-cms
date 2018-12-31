@@ -16,25 +16,43 @@ There are two ways to define React component
 1. Functional
 2. Class
 
-
-
 ## Functional Component
 
 “Functional components” are simple Javascript functions which accepts props and returns JSX code
 
+\`\``react
+
+class Welcome extends React.Component {
+
+  render() {
+
+\    return <h1>Hello, {this.props.name}</h1>;
+
+  }
+
+}
+
+\`\``
 
 
-`function Welcome(props) {             `\
+
+\`\``javascript
+
+var s = "JavaScript syntax highlighting";
+
+alert(s);
+
+\`\``
+
+`function Welcome(props) {`\
     `return <h1>Hello, {props.name}</h1>;`\
-`}                                     `
-
-
+`}`
 
 ## Class Component
 
 Whereas “Class Component” are ES6 way to create React Components 
 
-`class Welcome extends React.Component {  `\
+`class Welcome extends React.Component {`\
   `render() {`\
     `return <h1>Hello, {this.props.name}</h1>;`\
   `}`\
@@ -48,17 +66,13 @@ All class components
 
 The differences above may seem subtle at first glance, but cutting the noise is a big win.
 
-
-
-## Advantage of Functional Component 
+## Advantage of Functional Component
 
 _Reusable Code_\
  A functional stateless component is merely a factory function used to create a React component
 
 _No this Keyword As_ \
 You can see above, the stateless component is just a function. Thus, all the annoying and confusing quirks with Javascript’s this keyword are avoided. The entire component becomes easier to understand without the this keyword. Just compare the click handler in each approach:
-
-
 
 onClick={this.sayHi.bind(this)}>Say Hi</a>\
 onClick={sayHi}>Say Hi</a>
@@ -75,10 +89,6 @@ Easy to Understand
 
 As we’ve just seen, when you see a stateless functional component, you know it’s simply a function that takes props and spits out HTML. Even if it contains a lot of markup and nested functions inside the render, it’s conceptually simple. It’s a pure function. This leads to the next big win…
 
-
-
 Performance
-
-
 
 Familiar of OO Developer
