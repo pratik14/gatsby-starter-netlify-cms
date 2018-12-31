@@ -20,27 +20,24 @@ There are two ways to define React component
 
 “Functional components” are simple Javascript functions which accepts props and returns JSX code
 
-\`\``javascript
+```javascript
 
 function Welcome(props) {\
     return <h1>Hello, {props.name}</h1>;\
 }
-
-\`\``
+```
 
 ## Class Component
 
 Whereas “Class Component” are ES6 way to create React Components 
 
-\`\``javascript
-
+```javascript
 class Welcome extends React.Component {\
   render() {\
     return <h1>Hello, {this.props.name}</h1>;\
   }\
 }
-
-\`\``
+```
 
 All class components 
 
@@ -58,12 +55,10 @@ _Reusable Code_\
 _No this Keyword As_ \
 You can see above, the stateless component is just a function. Thus, all the annoying and confusing quirks with Javascript’s this keyword are avoided. The entire component becomes easier to understand without the this keyword. Just compare the click handler in each approach:
 
-\`\``javascript
-
-onClick={this.sayHi.bind(this)}>Say Hi</a>\
-onClick={sayHi}>Say Hi</a>
-
-\`\``
+```javascript
+  onClick={this.sayHi.bind(this)}>Say Hi</a>\
+  onClick={sayHi}>Say Hi</a>
+```
 
 Note that the bind keyword isn’t necessary for the stateless component. Dumping classes eliminates the need for calling bind to pass the this context around. Given how confusing JavaScript’s this keyword is to many developers, avoiding it is a nice win.
 
